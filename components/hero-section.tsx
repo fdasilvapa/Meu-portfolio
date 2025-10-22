@@ -35,7 +35,7 @@ export function HeroSection() {
 
           {/* Botão Secundário */}
           <Link
-            href="/cv.pdf" // Você precisará adicionar seu CV na pasta 'public'
+            href="/cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 rounded border-2 border-accent px-6 py-3 font-medium text-accent transition-colors hover:bg-accent hover:text-text-on-accent"
