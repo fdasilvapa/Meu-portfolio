@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SiGithub, SiLinkedin } from "react-icons/si";
+import { SiGithub, SiLinkedin, SiWhatsapp } from "react-icons/si";
 
 export function AboutSection() {
   return (
@@ -58,7 +58,15 @@ export function AboutSection() {
               <span className="text-lg font-medium">GitHub</span>
             </Link>
 
-            {/* Outros links */}
+            <Link
+              href="https://wa.me/5562992440579"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded p-2 text-text-secondary transition-colors hover:bg-accent-hover/10 hover:text-accent"
+            >
+              <SiWhatsapp size={24} />
+              <span className="text-lg font-medium">WhatsApp</span>
+            </Link>
           </div>
         </div>
       </div>
