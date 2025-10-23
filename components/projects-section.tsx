@@ -8,7 +8,7 @@ const projectsData = [
     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     githubUrl: "https://github.com/fdasilvapa/Meu-portfolio",
     demoUrl: undefined,
-    imageUrl: undefined,
+    imageUrl: "/images/meu-portfolio-img.png",
   },
   {
     title: "Gestor Simplificado",
