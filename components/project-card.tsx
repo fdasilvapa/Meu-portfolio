@@ -20,6 +20,33 @@ export function ProjectCard({
   demoUrl,
   imageUrl,
 }: ProjectCardProps) {
+  const getTagClasses = (tag: string) => {
+    const lowerTag = tag.toLowerCase();
+
+    switch (lowerTag) {
+      case "react":
+      case "next.js":
+      case "typescript":
+      case "tailwind css":
+        return "bg-blue-500/10 text-blue-500 dark:text-blue-400";
+
+      case "node.js":
+      case "prisma":
+      case "postgresql":
+      case "mongodb":
+      case "express":
+        return "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400";
+
+      case "javascript":
+      case "html5 canvas":
+      case "jwt":
+        return "bg-amber-500/10 text-amber-600 dark:text-amber-400";
+
+      default:
+        return "bg-accent/10 text-accent";
+    }
+  };
+
   return (
     <div className="flex h-full flex-col rounded-lg border border-text/20 bg-bg p-6 shadow-sm transition-all hover:shadow-lg">
       {/* 1. Imagem */}
@@ -51,7 +78,9 @@ export function ProjectCard({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
+              className={`rounded-full px-3 py-1 text-xs font-medium ${getTagClasses(
+                tag
+              )}`}
             >
               {tag}
             </span>
