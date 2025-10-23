@@ -3,7 +3,7 @@ import { SiGithub, SiLinkedin, SiWhatsapp } from "react-icons/si";
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="bg-bg py-20 md:py-32">
+    <section id="sobre" className="py-12 md:py-20">
       <div className="container mx-auto max-w-5xl px-4">
         {/* Título da Seção */}
         <h2 className="text-3xl font-bold tracking-tight text-text md:text-4xl">

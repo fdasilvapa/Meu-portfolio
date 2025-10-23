@@ -62,7 +62,7 @@ const toolsSkills: Skill[] = [
 
 export function SkillsSection() {
   return (
-    <section id="habilidades" className="bg-bg py-20 md:py-32">
+    <section id="habilidades" className="py-12 md:py-20">
       <div className="container mx-auto max-w-5xl px-4">
         <h2 className="text-3xl font-bold tracking-tight text-text md:text-4xl">
           Minhas Habilidades

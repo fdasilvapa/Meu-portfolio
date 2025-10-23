@@ -3,7 +3,7 @@ import { ArrowDown } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section id="inicio" className="py-20 md:py-32">
+    <section id="inicio" className="py-12 md:py-20">
       <div className="container mx-auto max-w-5xl px-4">
         {/* Título Principal */}
         <h1 className="text-4xl font-bold tracking-tight text-text md:text-6xl">

@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br" suppressHydrationWarning>
-      <body className={`${inter.className} bg-bg text-text`}>
+      <body className={`${inter.className} text-text`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

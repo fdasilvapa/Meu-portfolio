@@ -32,7 +32,7 @@ const projectsData = [
 
 export function ProjectsSection() {
   return (
-    <section id="projetos" className="bg-bg py-20 md:py-32">
+    <section id="projetos" className="py-12 md:py-20">
       <div className="container mx-auto max-w-5xl px-4">
         {/* Título da Seção */}
         <h2 className="text-3xl font-bold tracking-tight text-text md:text-4xl">

@@ -7,6 +7,8 @@
   --color-accent: #06b6d4;
   --color-accent-hover: #0891b2;
   --color-text-on-accent: #0a0f1e;
+
+  --grid-lines: rgba(100, 116, 139, 0.1);
 }
 
 [data-theme="dark"],
@@ -16,6 +18,20 @@
   --color-text-secondary: #f8fafc;
   --color-accent: #06b6d4;
   --color-accent-hover: #22d3ee;
+
+  --grid-lines: rgba(100, 116, 139, 0.15);
+}
+
+body {
+  background-color: var(--color-bg);
+
+  background-image: linear-gradient(
+      to right,
+      var(--grid-lines) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--grid-lines) 1px, transparent 1px);
+  background-size: 50px 50px;
 }
 
 @theme {
