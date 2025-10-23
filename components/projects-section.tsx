@@ -8,6 +8,7 @@ const projectsData = [
     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     githubUrl: "https://github.com/fdasilvapa/Meu-portfolio",
     demoUrl: undefined,
+    imageUrl: undefined,
   },
   {
     title: "Gestor Simplificado",
@@ -16,6 +17,7 @@ const projectsData = [
     tags: ["React", "JavaScript", "Node.js", "Prisma", "PostgreSQL"],
     githubUrl: "https://github.com/fdasilvapa/gestor-simplificado",
     demoUrl: undefined,
+    imageUrl: undefined,
   },
   {
     title: "Sistema de cadastro de usuários",
@@ -23,6 +25,8 @@ const projectsData = [
       "Uma API RESTful com cadastro e autenticação de usuários, conectada a um front-end funcional.",
     tags: ["React", "Express", "MongoDB", "JWT"],
     githubUrl: "https://github.com/fdasilvapa/Api-Node-React",
+    demoUrl: undefined,
+    imageUrl: "/images/api-node-react-img.png",
   },
 ];
 
@@ -46,6 +50,7 @@ export function ProjectsSection() {
               tags={project.tags}
               githubUrl={project.githubUrl}
               demoUrl={project.demoUrl}
+              imageUrl={project.imageUrl}
             />
           ))}
         </div>

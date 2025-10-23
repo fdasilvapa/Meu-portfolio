@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { ExternalLink, ImageIcon } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 
 type ProjectCardProps = {
@@ -8,6 +9,7 @@ type ProjectCardProps = {
   tags: string[];
   githubUrl: string;
   demoUrl?: string;
+  imageUrl?: string;
 };
 
 export function ProjectCard({
@@ -16,13 +18,26 @@ export function ProjectCard({
   tags,
   githubUrl,
   demoUrl,
+  imageUrl,
 }: ProjectCardProps) {
   return (
     <div className="flex h-full flex-col rounded-lg border border-text/20 bg-bg p-6 shadow-sm transition-all hover:shadow-lg">
-      {/* 1. Placeholder da Imagem */}
-      <div className="aspect-video w-full rounded-md bg-text/5">
-        {/* Ex: <Image src="/images/meu-projeto.png" ... /> */}
-      </div>
+      {/* 1. Imagem */}
+      {imageUrl ? (
+        <div className="relative aspect-video w-full overflow-hidden rounded-md bg-text/5">
+          <Image
+            src={imageUrl}
+            alt={`Screenshot do projeto ${title}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      ) : (
+        <div className="flex aspect-video w-full items-center justify-center rounded-md bg-text/5 text-text-secondary">
+          <ImageIcon size={48} />
+        </div>
+      )}
 
       {/* 2. Título */}
       <h3 className="mt-5 text-2xl font-semibold text-text">{title}</h3>
