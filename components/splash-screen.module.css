@@ -1,0 +1,171 @@
+/* --- Sprites --- */
+.sprite {
+  width: 160px;
+  height: 80px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  transform: translate3d(0, 0, 0);
+  background-repeat: no-repeat;
+}
+.idle {
+  background-image: url("/sprites/Idle-Sheet.png");
+  background-size: 640px 80px;
+  animation: idle-animation 0.8s steps(4) infinite;
+}
+@keyframes idle-animation {
+  100% {
+    background-position: -640px 0;
+  }
+}
+.jump {
+  background-image: url("/sprites/Jump-Sheet.png");
+  background-size: 1440px 80px;
+  animation: jump-animation 0.8s steps(9) 1;
+  animation-fill-mode: forwards;
+}
+@keyframes jump-animation {
+  100% {
+    background-position: -1440px 0;
+  }
+}
+
+/* --- Layout da Tela --- */
+.splashScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background-color: #0a0f1e;
+}
+
+/* --- Wrapper de Conteúdo --- */
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Começa invisível */
+  opacity: 0;
+  transform: translateY(20px);
+  /* Transição para 'fade in' e 'fade out' */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.contentWrapper.ready {
+  opacity: 1;
+  transform: translateY(0);
+}
+.contentWrapper.hiding {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* --- Efeito de "digitando" --- */
+.loadingText {
+  color: var(--color-text-secondary);
+  font-family: monospace;
+  overflow: hidden;
+  border-right: 0.15em solid var(--color-accent);
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  font-size: 1.25rem;
+  animation: typing 2s steps(20, end) 1 forwards, blink-caret 0.75s step-end 3;
+
+  /* Transição para sumir */
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+/* Classe para fazer o texto sumir */
+.loadingText.hiding {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 10.5em;
+  }
+}
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--color-accent);
+  }
+}
+
+/* --- Wrapper do Personagem --- */
+.characterWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* --- Botão "START" --- */
+.buttonWrapper {
+  position: relative;
+  display: inline-block;
+}
+.startButton {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  font-size: 1.25rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 10px 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+}
+.startButton:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+  transform: scale(1.05);
+}
+.buttonWrapper.isStarting .startButton {
+  opacity: 0;
+  transform: scale(0.5);
+  pointer-events: none;
+}
+
+/* --- Explosão da Tela --- */
+.explosion {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 1;
+  z-index: 99;
+  animation: none;
+}
+.explosion.exploding {
+  animation: explode-animation 0.5s ease-out 1 forwards;
+}
+@keyframes explode-animation {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(30);
+    opacity: 0;
+  }
+}

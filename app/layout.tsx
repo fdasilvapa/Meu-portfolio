@@ -2,14 +2,16 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AppProvider } from "@/components/app-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Meu Portfólio",
-  description: "Portfólio Pessoal",
+  title: "Felipe Alves | Portfólio",
+  description:
+    "Portfólio de Felipe Alves, Estudante de Engenharia de Software.",
 };
 
 export default function RootLayout({
@@ -26,9 +28,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          {children}
-          <Footer />
+          <AppProvider>
+            <Header />
+            {children}
+            <Footer />
+          </AppProvider>
         </ThemeProvider>
       </body>
     </html>
