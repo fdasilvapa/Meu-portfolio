@@ -48,7 +48,7 @@ export function ProjectCard({
   };
 
   return (
-    <div className="flex h-full flex-col rounded-lg border border-text/20 bg-bg p-6 shadow-sm transition-all hover:shadow-lg">
+    <div className="flex h-full flex-col rounded-lg border border-text/20 bg-bg p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
       {/* 1. Imagem */}
       {imageUrl ? (
         <div className="relative aspect-video w-full overflow-hidden rounded-md bg-text/5">
