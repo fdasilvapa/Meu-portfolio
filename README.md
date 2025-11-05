@@ -39,7 +39,7 @@ Para rodar este projeto no seu ambiente:
 
 1.  Clone o repositório:
     ```bash
-    git clone [https://github.com/fdasilvapa/Meu-portfolio.git](https://github.com/fdasilvapa/Meu-portfolio.git)
+    git clone https://github.com/fdasilvapa/Meu-portfolio.git
     ```
 2.  Entre na pasta e instale as dependências:
     ```bash
