@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio Pessoal - Felipe Alves
 
-## Getting Started
+[![Deploy on Vercel](https://vercel.com/button)](https://felipealves-portfolio.vercel.app/)
 
-First, run the development server:
+Acesse a versão live em: **[felipealves-portfolio.vercel.app](https://felipealves-portfolio.vercel.app/)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Sobre o Projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Este é o meu portfólio pessoal, desenvolvido para centralizar meus projetos, habilidades e informações de contato. É o "hub" principal onde demonstro meu trabalho e minha jornada como desenvolvedor de software.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Este projeto foi construído do zero como uma aplicação **Next.js** e hospedado na **Vercel**.
 
-## Learn More
+## ✨ Visual
 
-To learn more about Next.js, take a look at the following resources:
+![Screenshot da landing page do portfólio](./public/images/meu-portfolio-img.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Tecnologias Utilizadas
 
-## Deploy on Vercel
+Este projeto foi construído utilizando tecnologias modernas de frontend:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* **[Next.js](https://nextjs.org/)**: Framework React para renderização (SSR/SSG).
+* **[React](https://react.dev/)**: Biblioteca principal para a UI.
+* **[TypeScript](https://www.typescriptlang.org/)**: Para tipagem estática e um código mais robusto.
+* **[Tailwind CSS](https://tailwindcss.com/)**: Para estilização rápida e utilitária.
+* **[Vercel](https://vercel.com/)**: Para deploy e hospedagem contínua (CI/CD).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌟 Features
+
+* **Design Responsivo**: Totalmente adaptável para desktops, tablets e celulares.
+* **Seção de Projetos**: Um grid dinâmico que exibe meus trabalhos, carregados a partir de um array de dados estruturado.
+* **Links de Contato**: Acesso fácil ao meu GitHub e outras redes profissionais.
+
+## 🏁 Rodando Localmente
+
+Para rodar este projeto no seu ambiente:
+
+1.  Clone o repositório:
+    ```bash
+    git clone [https://github.com/fdasilvapa/Meu-portfolio.git](https://github.com/fdasilvapa/Meu-portfolio.git)
+    ```
+2.  Entre na pasta e instale as dependências:
+    ```bash
+    cd Meu-portfolio
+    npm install
+    ```
+3.  Rode o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
+4.  Abra `http://localhost:3000` no seu navegador.
+
+## 👨‍💻 Contato
+
+Felipe da Silva - [Github](https://github.com/fdasilvapa)
