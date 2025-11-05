@@ -13,11 +13,19 @@ const projectsData = [
   {
     title: "Gestor Simplificado",
     description:
-      "Aplicação de gestão financeira pessoal ou para pequenos negócios. Permite o rastreio de receitas, despesas, categorização de gastos e visualização de relatórios mensais.",
-    tags: ["React", "JavaScript", "Node.js", "Prisma", "PostgreSQL"],
+      "Aplicação full-stack de gestão financeira construída com Docker, Node.js e React. Permite o rastreio de receitas, despesas, e visualização de relatórios com filtros de período.", // Descrição atualizada
+    tags: [
+      "React",
+      "Node.js",
+      "Docker",
+      "PostgreSQL",
+      "Prisma",
+      "Tailwind CSS",
+      "JWT",
+    ],
     githubUrl: "https://github.com/fdasilvapa/gestor-simplificado",
     demoUrl: undefined,
-    imageUrl: undefined,
+    imageUrl: "/images/dashboard-gestor.png",
   },
   {
     title: "Sistema de cadastro de usuários",
