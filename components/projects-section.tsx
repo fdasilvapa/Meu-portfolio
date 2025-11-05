@@ -7,7 +7,7 @@ const projectsData = [
       "Este próprio site! Construído com Next.js, Tailwind CSS e TypeScript para mostrar minhas habilidades.",
     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     githubUrl: "https://github.com/fdasilvapa/Meu-portfolio",
-    demoUrl: undefined,
+    demoUrl: "https://felipealves-portfolio.vercel.app/",
     imageUrl: "/images/meu-portfolio-img.png",
   },
   {
@@ -24,7 +24,7 @@ const projectsData = [
       "JWT",
     ],
     githubUrl: "https://github.com/fdasilvapa/gestor-simplificado",
-    demoUrl: undefined,
+    demoUrl: "https://gestor-simplificado.vercel.app/",
     imageUrl: "/images/dashboard-gestor.png",
   },
   {
