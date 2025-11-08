@@ -10,6 +10,7 @@ type ProjectCardProps = {
   githubUrl: string;
   demoUrl?: string;
   imageUrl?: string;
+  status?: string;
 };
 
 export function ProjectCard({
@@ -19,6 +20,7 @@ export function ProjectCard({
   githubUrl,
   demoUrl,
   imageUrl,
+  status
 }: ProjectCardProps) {
   const getTagClasses = (tag: string) => {
     const lowerTag = tag.toLowerCase();
@@ -47,6 +49,12 @@ export function ProjectCard({
     }
   };
 
+  const statusStyles: { [key: string]: string } = {
+    "Concluído": "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+    "Em Desenvolvimento": "bg-blue-500/10 text-blue-500 dark:text-blue-400",
+  };
+  const defaultStatusStyle = "bg-gray-500/10 text-gray-600 dark:text-gray-400";
+
   return (
     <div className="flex h-full flex-col rounded-lg border border-text/20 bg-bg p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
       {/* 1. Imagem */}
@@ -68,6 +76,19 @@ export function ProjectCard({
 
       {/* 2. Título */}
       <h3 className="mt-5 text-2xl font-semibold text-text">{title}</h3>
+
+      {/* Selo de Status */}
+      {status && (
+        <div className="mt-3">
+          <span
+            className={`rounded-full px-3 py-1 text-xs font-medium ${
+              statusStyles[status] || defaultStatusStyle
+            }`}
+          >
+            {status}
+          </span>
+        </div>
+      )}
 
       {/* 3. Descrição */}
       <p className="mt-3 text-text-secondary">{description}</p>
