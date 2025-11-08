@@ -2,18 +2,18 @@ import { ProjectCard } from "./project-card";
 
 const projectsData = [
   {
-    title: "Meu Portfólio",
+    title: "Gestor E-commerce (V2)",
     description:
-      "Este próprio site! Construído com Next.js, Tailwind CSS e TypeScript para mostrar minhas habilidades.",
-    tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-    githubUrl: "https://github.com/fdasilvapa/Meu-portfolio",
+      "Vitrine pública e sistema de checkout para o ecossistema Gestor. Este projeto consome a API segura do V1 (Gestor Simplificado) para listar produtos e registrar vendas automaticamente após o processamento do pagamento com Stripe. (Em Desenvolvimento)",
+    tags: ["React", "Next.js", "Stripe", "Tailwind CSS", "Vercel"],
+    githubUrl: "https://github.com/fdasilvapa/gestor-ecommerce",
     demoUrl: undefined,
-    imageUrl: "/images/meu-portfolio-img.png",
+    imageUrl: undefined,
   },
   {
-    title: "Gestor Simplificado",
+    title: "Gestor Simplificado (V1 - API & Admin)",
     description:
-      "Aplicação full-stack de gestão financeira construída com Docker, Node.js e React. Permite o rastreio de receitas, despesas, e visualização de relatórios com filtros de período.", // Descrição atualizada
+      "O painel de admin e a API central do ecossistema Gestor. Responsável pelo CRUD de produtos, gestão de despesas e visualização de relatórios. Fornece uma API segura (com API Key) para o E-commerce V2.",
     tags: [
       "React",
       "Node.js",
@@ -28,9 +28,18 @@ const projectsData = [
     imageUrl: "/images/dashboard-gestor.png",
   },
   {
+    title: "Meu Portfólio",
+    description:
+      "Este próprio site! Construído com Next.js, Tailwind CSS e TypeScript para mostrar minhas habilidades.",
+    tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    githubUrl: "https://github.com/fdasilvapa/Meu-portfolio",
+    demoUrl: undefined,
+    imageUrl: "/images/meu-portfolio-img.png",
+  },
+  {
     title: "Sistema de cadastro de usuários",
     description:
-      "Uma API RESTful com cadastro e autenticação de usuários, conectada a um front-end funcional.",
+      "Uma API RESTful simples com cadastro e autenticação de usuários (JWT), conectada a um front-end funcional.",
     tags: ["React", "Express", "MongoDB", "JWT"],
     githubUrl: "https://github.com/fdasilvapa/Api-Node-React",
     demoUrl: undefined,
