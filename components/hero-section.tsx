@@ -6,7 +6,7 @@ import { useLanguage } from "./language-provider";
 import { BinaryRain } from "./binary-rain";
 
 export function HeroSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section
@@ -51,7 +51,7 @@ export function HeroSection() {
           </Link>
 
           <Link
-            href="/cv.pdf"
+            href={language === "pt" ? "/cv-pt.pdf" : "/cv-english.pdf"}
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full sm:w-auto items-center justify-center gap-2 rounded border-2 border-accent px-8 py-4 font-bold text-accent transition-all hover:bg-accent hover:text-text-on-accent active:scale-95"
