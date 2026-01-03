@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styles from "./splash-screen.module.css";
+import { useLanguage } from "./language-provider";
 
 type SplashScreenProps = {
   onStarted: () => void;
@@ -10,6 +11,7 @@ type SplashScreenProps = {
 type LoadingStage = "loading" | "ready" | "jumping" | "exploding";
 
 export function SplashScreen({ onStarted }: SplashScreenProps) {
+  const { t } = useLanguage();
   const [loadingStage, setLoadingStage] = useState<LoadingStage>("loading");
 
   // Controla "loading" -> "ready"
@@ -40,36 +42,30 @@ export function SplashScreen({ onStarted }: SplashScreenProps) {
   };
 
   // --- Classes Dinâmicas ---
-
   const splashClasses = `${styles.splashScreen}`;
 
-  // 1. Classe para o Texto (controla o fade-out do texto)
   const loadingTextClasses = `${styles.loadingText} ${
     loadingStage !== "loading" ? styles.hiding : ""
   }`;
 
-  // 2. Classe para o Wrapper de Conteúdo (controla o fade-in/out do boneco/botão)
   const contentWrapperClasses = `${styles.contentWrapper} ${
     loadingStage === "exploding" ? styles.hiding : ""
   } ${
     loadingStage === "ready" || loadingStage === "jumping" ? styles.ready : ""
   }`;
 
-  // 3. Classe do Botão (esconde no 'jumping' ou 'exploding')
   const buttonWrapperClasses = `${styles.buttonWrapper} ${
     loadingStage === "jumping" || loadingStage === "exploding"
       ? styles.isStarting
       : ""
   }`;
 
-  // 4. Classe do Sprite (pula no 'jumping' ou 'exploding')
   const spriteClasses = `${styles.sprite} ${
     loadingStage === "jumping" || loadingStage === "exploding"
       ? styles.jump
       : styles.idle
   }`;
 
-  // 5. Classe da Explosão (explode no 'exploding')
   const explosionClasses = `${styles.explosion} ${
     loadingStage === "exploding" ? styles.exploding : ""
   }`;
@@ -77,16 +73,14 @@ export function SplashScreen({ onStarted }: SplashScreenProps) {
   return (
     <div className={splashClasses}>
       {/* 1. Texto de Carregando */}
-      {/* (Visível por padrão, some quando o estado muda de 'loading') */}
-      <div className={loadingTextClasses}>Carregando...</div>
+      <div className={loadingTextClasses}>{t.splash.loading}</div>
 
-      {/* 2. Wrapper de Conteúdo (APENAS boneco/botão) */}
-      {/* (Invisível por padrão, aparece quando o estado vira 'ready') */}
+      {/* 2. Wrapper de Conteúdo */}
       <div className={contentWrapperClasses}>
         <div className={styles.characterWrapper}>
           <div className={buttonWrapperClasses}>
             <button className={styles.startButton} onClick={handleStartClick}>
-              START
+              {t.splash.button}
             </button>
           </div>
           <div className={spriteClasses} />

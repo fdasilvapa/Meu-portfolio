@@ -5,13 +5,14 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AppProvider } from "@/components/app-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { LanguageProvider } from "@/components/language-provider";
+import { BackgroundEffects } from "@/components/background-effects";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Felipe Alves | Portfólio",
-  description:
-    "Portfólio de Felipe Alves, Estudante de Engenharia de Software.",
+  title: "Felipe Alves | Portfolio",
+  description: "Software Engineering Student Portfolio.",
 };
 
 export default function RootLayout({
@@ -20,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} text-text`}>
         <ThemeProvider
           attribute="class"
@@ -28,11 +29,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AppProvider>
-            <Header />
-            {children}
-            <Footer />
-          </AppProvider>
+          <LanguageProvider>
+            <AppProvider>
+              <BackgroundEffects />
+              <Header />
+              <main>{children}</main>
+              <Footer />
+            </AppProvider>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

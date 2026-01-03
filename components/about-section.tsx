@@ -1,72 +1,74 @@
+"use client";
+
 import Link from "next/link";
 import { SiGithub, SiLinkedin, SiWhatsapp } from "react-icons/si";
+import { useLanguage } from "./language-provider";
 
 export function AboutSection() {
+  const { t } = useLanguage();
+
   return (
-    <section id="sobre" className="py-12 md:py-20">
-      <div className="container mx-auto max-w-5xl px-4">
-        {/* Título da Seção */}
-        <h2 className="text-3xl font-bold tracking-tight text-text md:text-4xl">
-          Sobre Mim
+    <section id="sobre" className="relative py-10 md:py-14 overflow-hidden">
+      <div className="container mx-auto max-w-5xl px-4 relative z-10">
+        {/* Título Padronizado */}
+        <h2 className="text-2xl font-bold tracking-tight text-text md:text-3xl mb-10">
+          {t.about.title}
         </h2>
 
-        {/* Conteúdo */}
-        <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
-          {/* Coluna de Texto */}
-          <div className="flex flex-col gap-6 text-lg text-text-secondary">
-            <p>
-              Sou estudante de Engenharia de Software na Universidade Evangélica
-              de Goiás. Minha jornada na programação começou com a curiosidade
-              de entender como os jogos funcionavam, desde então venho
-              explorando diversas tecnologias.
-            </p>
-            <p>
-              Atualmente, meu foco de estudo está em desenvolvimento full-stack
-              com React e Node.js enquanto construo projetos práticos para
-              aprimorar minhas habilidades.
-            </p>
-            <p>
-              Busco uma oportunidade para aplicar meu conhecimento em um
-              ambiente desafiador, aprender com profissionais experientes e
-              contribuir para o desenvolvimento de soluções inovadoras.
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          {/* LADO ESQUERDO: BIO */}
+          <div className="space-y-4 text-lg text-text-secondary leading-relaxed">
+            <p>{t.about.p1}</p>
+            <p>{t.about.p2}</p>
+            <p>{t.about.p3}</p>
           </div>
 
-          {/* Coluna de Links Sociais */}
-          <div className="flex flex-col gap-4">
-            <h3 className="text-2xl font-semibold text-text">
-              Conecte-se comigo
+          {/* LADO DIREITO: CONECTE-SE (Alinhado à direita no desktop) */}
+          <div className="flex flex-col items-start md:items-end gap-6 md:pt-4">
+            <h3 className="text-xl font-semibold text-text md:text-right">
+              {t.about.connect}
             </h3>
 
-            <Link
-              href="https://www.linkedin.com/in/felipe-da-silva-pereira-alves-693841264"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 rounded p-2 text-text-secondary transition-colors hover:bg-accent-hover/10 hover:text-accent"
-            >
-              <SiLinkedin size={24} />
-              <span className="text-lg font-medium">LinkedIn</span>
-            </Link>
+            <div className="flex flex-col gap-3 w-full md:w-auto">
+              {/* LinkedIn */}
+              <Link
+                href="https://www.linkedin.com/in/felipe-da-silva-pereira-alves-693841264"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center md:flex-row-reverse gap-4 rounded-xl p-3 text-text-secondary transition-all hover:bg-accent/5 hover:text-accent"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-text/5 transition-colors group-hover:bg-accent/10">
+                  <SiLinkedin size={24} />
+                </div>
+                <span className="text-lg font-medium">LinkedIn</span>
+              </Link>
 
-            <Link
-              href="https://github.com/fdasilvapa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 rounded p-2 text-text-secondary transition-colors hover:bg-accent-hover/10 hover:text-accent"
-            >
-              <SiGithub size={24} />
-              <span className="text-lg font-medium">GitHub</span>
-            </Link>
+              {/* GitHub */}
+              <Link
+                href="https://github.com/fdasilvapa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center md:flex-row-reverse gap-4 rounded-xl p-3 text-text-secondary transition-all hover:bg-accent/5 hover:text-accent"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-text/5 transition-colors group-hover:bg-accent/10">
+                  <SiGithub size={24} />
+                </div>
+                <span className="text-lg font-medium">GitHub</span>
+              </Link>
 
-            <Link
-              href="https://wa.me/5562992440579"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 rounded p-2 text-text-secondary transition-colors hover:bg-accent-hover/10 hover:text-accent"
-            >
-              <SiWhatsapp size={24} />
-              <span className="text-lg font-medium">WhatsApp</span>
-            </Link>
+              {/* WhatsApp */}
+              <Link
+                href="https://wa.me/5562992440579"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center md:flex-row-reverse gap-4 rounded-xl p-3 text-text-secondary transition-all hover:bg-accent/5 hover:text-accent"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-text/5 transition-colors group-hover:bg-accent/10">
+                  <SiWhatsapp size={24} />
+                </div>
+                <span className="text-lg font-medium">WhatsApp</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
