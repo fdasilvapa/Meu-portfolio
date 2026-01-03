@@ -84,7 +84,7 @@ export function ProjectsSection() {
       </div>
 
       {/* --- FAIXA DO CARROSSEL (FULL WIDTH) --- */}
-      <div className="relative border-y border-text/10 bg-text/[0.02] py-8 md:py-12">
+      <div className="relative border-y border-text/10 bg-text/2 py-8 md:py-12">
         {/* Seta Esquerda (Grudada e sem borda arredondada) */}
         <button
           onClick={scrollPrev}
