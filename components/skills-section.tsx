@@ -1,3 +1,5 @@
+"use client";
+
 import {
   // Linguagens
   SiPython,
@@ -23,6 +25,7 @@ import {
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 import { IconType } from "react-icons";
+import { useLanguage } from "./language-provider";
 
 type Skill = {
   name: string;
@@ -61,17 +64,19 @@ const toolsSkills: Skill[] = [
 ];
 
 export function SkillsSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="habilidades" className="py-12 md:py-20">
       <div className="container mx-auto max-w-5xl px-4">
         <h2 className="text-3xl font-bold tracking-tight text-text md:text-4xl">
-          Minhas Habilidades
+          {t.skills.title}
         </h2>
 
         {/* Categoria Linguagens */}
         <div className="mt-12">
           <h3 className="text-2xl font-semibold text-text-secondary">
-            Linguagens de Programação
+            {t.skills.categories.languages}
           </h3>
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {languageSkills.map((skill) => (
@@ -83,7 +88,7 @@ export function SkillsSection() {
         {/* Categoria Frontend */}
         <div className="mt-12">
           <h3 className="text-2xl font-semibold text-text-secondary">
-            Desenvolvimento Front-end
+            {t.skills.categories.frontend}
           </h3>
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {frontendSkills.map((skill) => (
@@ -95,7 +100,7 @@ export function SkillsSection() {
         {/* Categoria Backend */}
         <div className="mt-12">
           <h3 className="text-2xl font-semibold text-text-secondary">
-            Desenvolvimento Back-end & Bancos de Dados
+            {t.skills.categories.backend}
           </h3>
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {backendSkills.map((skill) => (
@@ -107,7 +112,7 @@ export function SkillsSection() {
         {/* Categoria Ferramentas */}
         <div className="mt-12">
           <h3 className="text-2xl font-semibold text-text-secondary">
-            Visão Computacional, DevOps & Ferramentas
+            {t.skills.categories.tools}
           </h3>
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {toolsSkills.map((skill) => (

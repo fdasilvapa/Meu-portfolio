@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { SiLinkedin, SiWhatsapp } from "react-icons/si";
 import { Mail } from "lucide-react";
+import { useLanguage } from "./language-provider";
 
 type ContactLink = {
   name: string;
@@ -31,16 +34,17 @@ const contactLinks: ContactLink[] = [
 ];
 
 export function ContactSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="contato" className="py-12 md:py-20">
       <div className="container mx-auto max-w-5xl px-4">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-text md:text-4xl">
-            Vamos Conversar
+            {t.contact.title}
           </h2>
           <p className="mt-4 text-lg text-text-secondary">
-            Estou sempre aberto a novas oportunidades e conexões. Sinta-se à
-            vontade para entrar em contato.
+            {t.contact.description}
           </p>
         </div>
 

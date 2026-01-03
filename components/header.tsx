@@ -5,17 +5,19 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggleButton } from "./theme-toggle-button";
 import { MobileMenu } from "./mobile-menu";
-
-const navLinks = [
-  { href: "#inicio", label: "Início" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#projetos", label: "Projetos" },
-  { href: "#habilidades", label: "Habilidades" },
-  { href: "#contato", label: "Contato" },
-];
+import { useLanguage } from "./language-provider";
 
 export function Header() {
+  const { language, setLanguage, t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "#inicio", label: t.header.home },
+    { href: "#sobre", label: t.header.about },
+    { href: "#projetos", label: t.header.projects },
+    { href: "#habilidades", label: t.header.skills },
+    { href: "#contato", label: t.header.contact },
+  ];
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -31,7 +33,7 @@ export function Header() {
               href="/"
               className="text-2xl font-bold text-accent transition-colors hover:text-accent-hover"
             >
-              Felipe da Silva Pereira Alves
+              Felipe<span className="text-text-secondary">.dev</span>
             </Link>
           </div>
 
@@ -39,7 +41,7 @@ export function Header() {
           <nav className="hidden items-center space-x-6 md:flex">
             {navLinks.map((link) => (
               <Link
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 className="font-medium text-text-secondary transition-colors hover:text-text"
               >
@@ -50,6 +52,12 @@ export function Header() {
 
           <div className="flex items-center gap-2">
             {" "}
+            <button
+              onClick={() => setLanguage(language === "pt" ? "en" : "pt")}
+              className="flex items-center justify-center rounded p-2 text-sm font-bold text-text transition-colors hover:bg-accent/10"
+            >
+              {language === "pt" ? "EN" : "PT"}
+            </button>
             <ThemeToggleButton />
             {/* Botão Hambúrguer (Só aparece em mobile) */}
             <button

@@ -1,41 +1,33 @@
+"use client";
+
 import Link from "next/link";
 import { SiGithub, SiLinkedin, SiWhatsapp } from "react-icons/si";
+import { useLanguage } from "./language-provider";
 
 export function AboutSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="sobre" className="py-12 md:py-20">
       <div className="container mx-auto max-w-5xl px-4">
         {/* Título da Seção */}
         <h2 className="text-3xl font-bold tracking-tight text-text md:text-4xl">
-          Sobre Mim
+          {t.about.title}
         </h2>
 
         {/* Conteúdo */}
         <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
           {/* Coluna de Texto */}
           <div className="flex flex-col gap-6 text-lg text-text-secondary">
-            <p>
-              Sou estudante de Engenharia de Software na Universidade Evangélica
-              de Goiás. Minha jornada na programação começou com a curiosidade
-              de entender como os jogos funcionavam, desde então venho
-              explorando diversas tecnologias.
-            </p>
-            <p>
-              Atualmente, meu foco de estudo está em desenvolvimento full-stack
-              com React e Node.js enquanto construo projetos práticos para
-              aprimorar minhas habilidades.
-            </p>
-            <p>
-              Busco uma oportunidade para aplicar meu conhecimento em um
-              ambiente desafiador, aprender com profissionais experientes e
-              contribuir para o desenvolvimento de soluções inovadoras.
-            </p>
+            <p>{t.about.p1}</p>
+            <p>{t.about.p2}</p>
+            <p>{t.about.p3}</p>
           </div>
 
           {/* Coluna de Links Sociais */}
           <div className="flex flex-col gap-4">
             <h3 className="text-2xl font-semibold text-text">
-              Conecte-se comigo
+              {t.about.connect}
             </h3>
 
             <Link
