@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink, ImageIcon } from "lucide-react";
+import { ExternalLink, ImageIcon, ArrowUpRight } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import { useLanguage } from "./language-provider";
 
@@ -56,7 +56,7 @@ export function ProjectCard({
   };
 
   return (
-    <div className="flex h-full flex-col rounded-lg border border-text/20 bg-bg p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+    <div className="flex h-full flex-col rounded-lg border border-text/20 bg-bg p-6 shadow-sm transition-all hover:shadow-lg">
       {/* 1. Imagem */}
       {imageUrl ? (
         <div className="relative aspect-video w-full overflow-hidden rounded-md bg-text/5">
@@ -108,15 +108,21 @@ export function ProjectCard({
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col gap-3 border-t border-text/10 pt-4">
           <Link
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-text-secondary transition-colors hover:text-accent"
+            className="group/link flex items-center justify-between rounded-md bg-text/5 px-4 py-2 text-sm font-medium text-text transition-all hover:bg-accent/10 hover:text-accent"
           >
-            <SiGithub size={20} />
-            {t.projects.repo}
+            <div className="flex items-center gap-2">
+              <SiGithub size={18} />
+              {t.projects.repo}
+            </div>
+            <ArrowUpRight
+              size={16}
+              className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+            />
           </Link>
 
           {demoUrl && (
@@ -124,10 +130,16 @@ export function ProjectCard({
               href={demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-text-secondary transition-colors hover:text-accent"
+              className="group/link flex items-center justify-between rounded-md bg-accent/10 px-4 py-2 text-sm font-medium text-accent transition-all hover:bg-accent/20"
             >
-              <ExternalLink size={20} />
-              {t.projects.demo}
+              <div className="flex items-center gap-2">
+                <ExternalLink size={18} />
+                {t.projects.demo}
+              </div>
+              <ArrowUpRight
+                size={16}
+                className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+              />
             </Link>
           )}
         </div>
