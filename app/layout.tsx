@@ -6,6 +6,7 @@ import { AppProvider } from "@/components/app-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { LanguageProvider } from "@/components/language-provider";
+import { BackgroundEffects } from "@/components/background-effects";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         >
           <LanguageProvider>
             <AppProvider>
+              <BackgroundEffects />
               <Header />
               <main>{children}</main>
               <Footer />

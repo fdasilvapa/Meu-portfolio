@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   // Linguagens
   SiPython,
@@ -66,59 +67,34 @@ const toolsSkills: Skill[] = [
 export function SkillsSection() {
   const { t } = useLanguage();
 
+  const categories = [
+    { label: t.skills.categories.languages, skills: languageSkills },
+    { label: t.skills.categories.frontend, skills: frontendSkills },
+    { label: t.skills.categories.backend, skills: backendSkills },
+    { label: t.skills.categories.tools, skills: toolsSkills },
+  ];
+
   return (
-    <section id="habilidades" className="py-12 md:py-20">
+    <section id="habilidades" className="py-10 md:py-14">
+      {" "}
       <div className="container mx-auto max-w-5xl px-4">
-        <h2 className="text-3xl font-bold tracking-tight text-text md:text-4xl">
+        <h2 className="text-2xl font-bold tracking-tight text-text md:text-3xl mb-10">
           {t.skills.title}
         </h2>
 
-        {/* Categoria Linguagens */}
-        <div className="mt-12">
-          <h3 className="text-2xl font-semibold text-text-secondary">
-            {t.skills.categories.languages}
-          </h3>
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {languageSkills.map((skill) => (
-              <SkillCard key={skill.name} skill={skill} />
-            ))}
-          </div>
-        </div>
-
-        {/* Categoria Frontend */}
-        <div className="mt-12">
-          <h3 className="text-2xl font-semibold text-text-secondary">
-            {t.skills.categories.frontend}
-          </h3>
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {frontendSkills.map((skill) => (
-              <SkillCard key={skill.name} skill={skill} />
-            ))}
-          </div>
-        </div>
-
-        {/* Categoria Backend */}
-        <div className="mt-12">
-          <h3 className="text-2xl font-semibold text-text-secondary">
-            {t.skills.categories.backend}
-          </h3>
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {backendSkills.map((skill) => (
-              <SkillCard key={skill.name} skill={skill} />
-            ))}
-          </div>
-        </div>
-
-        {/* Categoria Ferramentas */}
-        <div className="mt-12">
-          <h3 className="text-2xl font-semibold text-text-secondary">
-            {t.skills.categories.tools}
-          </h3>
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {toolsSkills.map((skill) => (
-              <SkillCard key={skill.name} skill={skill} />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
+          {categories.map((category) => (
+            <div key={category.label} className="flex flex-col gap-4">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-accent/80 border-b border-text/10 pb-2">
+                {category.label}
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {category.skills.map((skill) => (
+                  <SkillCard key={skill.name} skill={skill} />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -128,13 +104,17 @@ export function SkillsSection() {
 function SkillCard({ skill }: { skill: Skill }) {
   const Icon = skill.icon;
   return (
-    <div className="flex flex-col items-center gap-2 rounded-lg border border-text/20 bg-bg p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
-      <Icon
-        size={40}
-        style={{ color: skill.color === "#FFFFFF" ? "" : skill.color }}
-        className="text-text"
-      />
-      <span className="font-medium text-text-secondary">{skill.name}</span>
+    <div className="group flex items-center gap-3 rounded-lg border border-text/10 bg-bg/40 p-2.5 transition-all hover:border-accent/30 hover:bg-accent/5">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-text/5 group-hover:bg-bg transition-colors">
+        <Icon
+          size={20}
+          style={{ color: skill.color === "#FFFFFF" ? "" : skill.color }}
+          className="transition-transform group-hover:scale-110"
+        />
+      </div>
+      <span className="text-sm font-medium text-text-secondary group-hover:text-text transition-colors">
+        {skill.name}
+      </span>
     </div>
   );
 }

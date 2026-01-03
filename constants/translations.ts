@@ -9,7 +9,8 @@ export const translations = {
     },
     metadata: {
       title: "Felipe Alves | Portfólio",
-      description: "Portfólio de Felipe Alves, Estudante de Engenharia de Software.",
+      description:
+        "Portfólio de Felipe Alves, Estudante de Engenharia de Software.",
     },
     about: {
       title: "Sobre Mim",
@@ -41,7 +42,8 @@ export const translations = {
       list: [
         {
           title: "MyGameList",
-          description: "Rede social para gamers (estilo IMDB) desenvolvida em parceria com Lucas. Permite aos usuários descobrir, avaliar e organizar coleções de jogos, tudo isso com um sistema de gamificação.",
+          description:
+            "Rede social para gamers (estilo IMDB) desenvolvida em parceria com Lucas. Permite aos usuários descobrir, avaliar e organizar coleções de jogos, tudo isso com um sistema de gamificação.",
           status: "Em Desenvolvimento",
         },
         {
@@ -77,12 +79,14 @@ export const translations = {
         frontend: "Desenvolvimento Front-end",
         backend: "Desenvolvimento Back-end & Bancos de Dados",
         tools: "Visão Computacional, DevOps & Ferramentas",
-      }
+      },
     },
     contact: {
       title: "Vamos Conversar",
       description:
         "Estou sempre aberto a novas oportunidades e conexões. Sinta-se à vontade para entrar em contato.",
+      copy: "Copiar e-mail",
+      copied: "Copiado!",
     },
     footer: {
       rights: "Todos os direitos reservados.",
@@ -134,7 +138,8 @@ export const translations = {
       list: [
         {
           title: "MyGameList",
-          description: "Social network for gamers (IMDB style) developed in partnership with Lucas. It allows users to discover, rate, and organize game collections, all of that with a gamification system.",
+          description:
+            "Social network for gamers (IMDB style) developed in partnership with Lucas. It allows users to discover, rate, and organize game collections, all of that with a gamification system.",
           status: "Em Desenvolvimento",
         },
         {
@@ -170,12 +175,14 @@ export const translations = {
         frontend: "Frontend Development",
         backend: "Backend & Databases",
         tools: "Computer Vision, DevOps & Tools",
-      }
+      },
     },
     contact: {
       title: "Let's Talk",
       description:
         "I am always open to new opportunities and connections. Feel free to get in touch.",
+      copy: "Copy email",
+      copied: "Copied!",
     },
     footer: {
       rights: "All rights reserved.",

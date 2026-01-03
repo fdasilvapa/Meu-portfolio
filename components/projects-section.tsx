@@ -66,74 +66,65 @@ export function ProjectsSection() {
   );
 
   return (
-    <section id="projetos" className="py-12 md:py-20 overflow-hidden">
-      <div className="container mx-auto max-w-6xl px-4">
-        {/* Cabeçalho da Seção */}
-        <div className="mb-8 flex flex-col gap-2 md:mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-text md:text-4xl">
-            {t.projectsSection.title}
-          </h2>
+    <section id="projetos" className="py-10 md:py-14">
+      {/* Título: Mantido no container para alinhar com o resto do site */}
+      <div className="container mx-auto max-w-5xl px-4 mb-8">
+        <h2 className="text-2xl font-bold tracking-tight text-text md:text-3xl">
+          {t.projectsSection.title}
+        </h2>
 
-          {/* Hint para mobile: Agora posicionado no topo */}
-          <div className="flex items-center gap-2 text-sm font-medium text-accent md:hidden">
-            <MoveLeft size={16} className="animate-pulse" />
-            <span>
-              {language === "pt" ? "Arraste para explorar" : "Swipe to explore"}
-            </span>
-            <MoveRight size={16} className="animate-pulse" />
+        {/* Hint Mobile */}
+        <div className="mt-4 flex items-center gap-2 text-sm font-medium text-accent md:hidden">
+          <MoveLeft size={16} className="animate-pulse" />
+          <span>
+            {language === "pt" ? "Arraste para explorar" : "Swipe to explore"}
+          </span>
+          <MoveRight size={16} className="animate-pulse" />
+        </div>
+      </div>
+
+      {/* --- FAIXA DO CARROSSEL (FULL WIDTH) --- */}
+      <div className="relative border-y border-text/10 bg-text/[0.02] py-8 md:py-12">
+        {/* Seta Esquerda (Grudada e sem borda arredondada) */}
+        <button
+          onClick={scrollPrev}
+          className="absolute left-0 top-0 bottom-0 z-20 hidden w-16 items-center justify-center border-r border-text/10 bg-bg/50 backdrop-blur-sm transition-all hover:bg-accent/10 hover:text-accent md:flex"
+          aria-label="Anterior"
+        >
+          <ChevronLeft size={32} />
+        </button>
+
+        {/* Viewport do Carrossel */}
+        <div className="overflow-hidden px-4 md:px-20" ref={emblaRef}>
+          <div className="flex -ml-6">
+            {t.projectsSection.list.map((project: any, index: number) => (
+              <div
+                key={project.title}
+                /* Ajustado para mostrar 2.5 cards no Desktop */
+                className="flex-[0_0_85%] min-w-0 pl-6 md:flex-[0_0_42%] lg:flex-[0_0_38%]"
+              >
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  status={project.status}
+                  tags={technicalData[index].tags}
+                  githubUrl={technicalData[index].githubUrl}
+                  demoUrl={technicalData[index].demoUrl}
+                  imageUrl={technicalData[index].imageUrl}
+                />
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Container Flex que alinha as setas e o carrossel lado a lado */}
-        <div className="flex items-stretch gap-2 md:gap-4">
-          {/* Seta Esquerda (Desktop) */}
-          <button
-            onClick={scrollPrev}
-            className="hidden md:flex w-12 items-center justify-center rounded-xl border border-text/10 bg-bg transition-all hover:bg-accent/5 hover:border-accent group text-text-secondary hover:text-accent"
-            aria-label="Anterior"
-          >
-            <ChevronLeft
-              size={32}
-              className="transition-transform group-active:scale-90"
-            />
-          </button>
-
-          {/* Viewport do Carrossel */}
-          <div className="flex-1 overflow-hidden" ref={emblaRef}>
-            <div className="flex -ml-4 py-2">
-              {" "}
-              {/* py-2 para sombra não cortar */}
-              {t.projectsSection.list.map((project: any, index: number) => (
-                <div
-                  key={project.title}
-                  className="flex-[0_0_85%] min-w-0 pl-4 md:flex-[0_0_48%]"
-                >
-                  <ProjectCard
-                    title={project.title}
-                    description={project.description}
-                    status={project.status}
-                    tags={technicalData[index].tags}
-                    githubUrl={technicalData[index].githubUrl}
-                    demoUrl={technicalData[index].demoUrl}
-                    imageUrl={technicalData[index].imageUrl}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Seta Direita (Desktop) */}
-          <button
-            onClick={scrollNext}
-            className="hidden md:flex w-12 items-center justify-center rounded-xl border border-text/10 bg-bg transition-all hover:bg-accent/5 hover:border-accent group text-text-secondary hover:text-accent"
-            aria-label="Próximo"
-          >
-            <ChevronRight
-              size={32}
-              className="transition-transform group-active:scale-90"
-            />
-          </button>
-        </div>
+        {/* Seta Direita (Grudada e sem borda arredondada) */}
+        <button
+          onClick={scrollNext}
+          className="absolute right-0 top-0 bottom-0 z-20 hidden w-16 items-center justify-center border-l border-text/10 bg-bg/50 backdrop-blur-sm transition-all hover:bg-accent/10 hover:text-accent md:flex"
+          aria-label="Próximo"
+        >
+          <ChevronRight size={32} />
+        </button>
       </div>
     </section>
   );

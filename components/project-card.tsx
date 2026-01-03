@@ -91,7 +91,7 @@ export function ProjectCard({
       )}
 
       {/* 3. Descrição */}
-      <p className="mt-3 text-text-secondary">{description}</p>
+      <p className="mt-3 text-text-secondary leading-relaxed">{description}</p>
 
       {/* 4. Tags e Links */}
       <div className="mt-auto pt-6">
